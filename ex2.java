@@ -8,12 +8,16 @@ public class ex2 {
     public static void main(String[] args) {
         ArrayList<Integer> inputArray = generateArrayOfIntegers(10, 1, 30);
         System.out.println("Сгенерированный список: \n" + inputArray);
-        
-        int min = Collections.min(inputArray);
-        int max = Collections.max(inputArray);
-        double average = inputArray.stream().mapToDouble(n -> n).sum() / inputArray.size();
 
-        System.out.format("Минимальное: %d, Максимальное: %d, Среднее: %.2f", min, max, average);
+        if (!inputArray.isEmpty()) {
+            int min = Collections.min(inputArray);
+            int max = Collections.max(inputArray);
+            double average = inputArray.stream().mapToDouble(n -> n).sum() / inputArray.size();
+
+            System.out.format("Минимальное: %d, Максимальное: %d, Среднее: %.2f", min, max, average);
+        } else {
+            System.out.println("Список пуст.");
+        }
     }
 
     public static ArrayList<Integer> generateArrayOfIntegers(int arrayListSize, int min, int max) {
